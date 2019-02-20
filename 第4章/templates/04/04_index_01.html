@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head >
+  <meta charset = "UTF-8" >
+  <title >常用的模板标签</title >
+</head >
+<body >
+{#{% if name == 'fzq' %}#}
+{#	欢迎{{ name }}登录#}
+{#	{% elif name == 'taka'  %}#}
+{#	哈哈哈#}
+{#	{% else %}#}
+{#	用户名错误#}
+{#{% endif %}#}
+{#ifequal:比较两个变量的值是否相等#}
+{#{% ifequal num1 num2  %}#}
+{#{% endifequal %}#}
+
+{#{% for i in list %}#}
+{#	{{ i }}#}
+{#{% endfor %}#}
+
+{#如何取下标,不能使用python里面的索引取值了，只能用模板提供的方法了,也可以用点 . 属性#}
+
+{#	<br>forloop.counter表示的是下标 所以可以作为判断条件<br>#}
+{#当前迭代的次数，下标从1开始#}
+	{{ forloop.counter }} <br>
+{#当前迭代的次数，下标从0开始#}
+	{{ forloop.counter0 }}
+{#下标从大到小，下标从1开始#}
+	{{ forloop.revcounter }}
+{#下标从大到小，下标从0开始#}
+	{{ forloop.revcounter0 }}
+{#返回bool类型，如果是第一次迭代，返回true，否则返回false#}
+{#	{{ forloop.first }}#}
+{#	{{ forloop.last }}#}
+{% for i in list %}
+
+	    {% for j in list1 %}
+{#		    如果发生多层for循环嵌套，那么这个变量返回的是上一层的for,这里输出的是上一层的list,而不是内层的list1#}
+{#			{% if forloop.parentloop.counter0 == 2 %}#}
+{#					<h2>{{ i }}{{ j }}</h2>#}
+{#			{% else %}#}
+{#					{{ i }}#}
+{#			{% endif %}#}
+		    {{ i }}
+	    {% endfor %}
+{% endfor %}
+
+{#如果没有数据，跳转到empty，一般数据库里查找会用到，数据库里定义了变量，但是没有值，返回的是NULL，则会用到empty#}
+{#{% for i in list  %}#}
+{#	{{ i }}#}
+{#	{% empty %}#}
+{#	没有数据就进来#}
+{#{% endfor %}#}
+
+{#页面跳转标签 url#}
+{#<a href="/04_index_02">跳转到04_index_02</a>#}
+{#要跳转到的路由名字name='04_index_02'#}
+{#<a href="{% url '04_index_02' %}">跳转到04_index_02</a>#}
+{#url 传参:直接在url后面传参#}
+<a href="{% url '04_index_02' 'haha' %}">跳转到04_index_02</a>
+
+{#针对变量是很长的字符串，而取一个别名as#}
+{#{% with book_name as bn  %}#}
+{#		{{ bn }}要想整个页面里面都用到别名bn，页面必须在这个区间（{% with %}页面{% endwith %}）里面用#}
+{#{% endwith %}#}
+
+{#关闭自动转义标签#}
+{#原始的：{{ html }}<br>#}
+{#过滤器关闭自动转移：{{ html|safe }}#}
+{#标签关闭自动转移，针对的是一个块（区间内）：#}
+{#{% autoescape off %}#}
+{#	{{ html }}#}
+{#{% endautoescape %}#}
+
+
+<h2>注释标签</h2><br>
+注释语句，单行注释:{#欢迎{{ name }}#}
+注释语句，块注释（段落注释）：
+{% comment %}
+哈哈哈，这是段落注释
+
+欢迎{{ name }}
+{% endcomment %}
+
+
+
+</body >
+</html >

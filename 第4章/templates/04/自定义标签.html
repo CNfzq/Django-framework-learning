@@ -1,0 +1,26 @@
+{% load filter %}
+{% comment 过滤器的写法 %}
+时间：{{ now }}<br>
+过滤器后的时间：{{ now|date }}
+带参数格式化后的时间：{{ now|date:'Y年m月d日：H：i:s' }}
+{% endcomment %}
+
+{#自定义简单标签#}
+{#通过简单标签传参数，format_string接收参数：{% current_time '%Y年%m月%d日：%H：%M:%S' %}#}
+{#通过视图函数context上下文传参数：{% current_time1 %}#}
+
+{#自定义包含标签#}
+{#是不是有很多重复的代码，可以把重复的代码归为一体，减少代码量#}
+{#把重复的代码抽出来，再重新写一下标签，只要传一下变量就可以#}
+<ul>
+{% comment %}
+	{% for i in list %}
+		<li>{{ i }}
+	{% endfor %}
+	{% for j in tuple  %}
+		<li>{{ j }}</li>
+	{% endfor %}
+{% endcomment %}
+</ul>
+{% show_result %}
+{% show_result1 list %}

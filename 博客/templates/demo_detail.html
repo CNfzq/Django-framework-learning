@@ -1,0 +1,9 @@
+{#显示文章的标签及内容#}
+{% extends 'demo_base.html' %}
+{% block title %}
+    文章详情
+{% endblock %}
+{% block bodyblock %}
+    <h1>{{ blog.title }}</h1>
+    {{ blog.content }}
+{% endblock %}

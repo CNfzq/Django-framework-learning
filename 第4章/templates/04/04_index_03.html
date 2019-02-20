@@ -1,0 +1,18 @@
+{#继承基本模板#}
+{% extends '04/base.html' %}
+{#自己模板要添加的内容,#}
+{% block title %}
+04_index
+{% endblock %}
+
+{#不仅要在自己的模板里添加新的内容，还要继承基本模板的内容#}
+{% block content %}
+这是子模板自己的内容：没有写block就不会显示<br>
+
+{#	还可以继承基本模板里面的内容#}
+	这句是通过block.super继承父类的：{{ block.super }}<br>
+
+{#	引用模板文件，include，必须放在block块里面，要修改的内容模块里面（哪里要用就放在哪里） #}
+	这是通过include引用的其他模板的内容：{% include '04/引用模板.html' %}<br>
+
+{% endblock %}

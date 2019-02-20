@@ -1,0 +1,27 @@
+{#将数据库中所有的博客展示到数据库中，点击文章标题可以查看文章的详情，附带编辑和删除的功能#}
+{% extends 'demo_base.html' %}
+{% block title %}
+    文章列表
+{% endblock %}
+
+{% block bodyblock %}
+    <h1 style="margin-left: 100px">文章列表</h1>
+    <table width="400px">
+        <thead style="font-size:20px">
+            <tr>
+                <th>标题</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+    <tbody>
+    {% for i in blog_list %}
+        <tr>
+            <th><a href="{% url 'blog_detail' i.id %}">{{ i.title }}</a></th>
+            <th><a href="{% url 'blog_edit' i.id %}">编辑</a> | <a href="{% url 'blog_delete' i.id %}">删除 </a></th>
+        </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+
+
+{% endblock %}

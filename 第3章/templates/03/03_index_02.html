@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head >
+  <meta charset = "UTF-8" >
+  <title >过滤器</title >
+</head >
+<body >
+{#过滤器#}
+原始字符串：{{ str }} <br >
+变大写：{{ str|upper }} <br>
+{#//链式调用,调用多个#}
+首字母大写：{{ str|lower|capfirst }}  <br>
+{#//过滤器可以使用参数，在过滤器名称后面使用冒号: 再加上参数,使用参数的时候，冒号和参数之间不能有任何空格，一定要紧挨着。#}
+去掉空格：{{ str|cut:' ' }}<br>
+数字相加：{{ num|add:num1 }}<br>
+字符串相加：{{ str|add:str1 }}<br>
+列表相加：{{ list|add:list1 }}<br>
+{#default:变量没定义的情况下是None,就会使用默认值default:定义了变量，但是该变量是None值，就会使用默认值，区别于default#}
+{#没定义的时候，也会使用default的默认值#}
+默认值：{{ def|default:'游客123' }}<br>
+{#None定义了，但是值为None,也会使用default默认值#}
+默认值：{{ default|default_if_none:'游客456' }}<br>
+返回列表的第一个值：{{ list1|first }}<br>
+返回列表的最后一个值：{{ list1|last }}<br>
+默认的date日期时间格式：{{ now|date }}<br>
+加参数的date：{{ now|date:'Y:m:d:H:i:s' }}<br>
+默认的time时间格式：{{ now|time }}<br>
+含html标签的字符串：{{ html}}<br>
+这是去掉html标签：{{ html|striptags }}<br>
+这是关掉自动转义，使字符串中的html标签生效：{{ html|striptags }}<br>
+浮点数格式化,保留2位：{{ float|floatformat:'2' }}<br>
+字符串join方法：{{ str1|join:'ffff' }}<br>
+字符串长度方法：{{ str1|length }}<br>
+字符串的长度是否为4：{{ str1|length_is:4 }}<br>
+字符串只显示4个字符,其余省略（省略号也占3位），共7位：{{ str2|truncatechars:7}}<br>
+字符串只显示2个单词，其余省略（不占位）：{{ str3|truncatewords:2 }}<br>
+
+
+
+</body >
+</html >

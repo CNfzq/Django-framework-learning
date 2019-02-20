@@ -1,0 +1,22 @@
+{#使用模板标签来加载静态文件进来#}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang = "en">
+<head >
+  <meta charset = "UTF-8" >
+  <title >静态文件的引用</title >
+{#	引入css #}
+{#	<link rel="stylesheet" href="/static/css/mystyle.css" >#}
+	<link rel="stylesheet" href="{% static "css/mystyle.css" %}" >  模板标签引用CSS文件
+</head >
+<body >
+{# 图片的引入#}
+{#<img src="/static/images/1.jpg">#}
+<img src="{% static "images/1.jpg" %}">    模板文件引入图片文件
+
+{# js的引入 #}
+{#<script src="/static/js/myjs.js" alt=""></script>#}
+<script src="{% static "js/myjs.js" %}" alt=""></script>     模板文件引入js文件
+</body >
+</html >

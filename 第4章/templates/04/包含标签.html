@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head >
+  <meta charset = "UTF-8" >
+  <title >包含标签</title >
+</head >
+<body >
+<ul>
+{#包含标签的模板，只需要传一个值过来#}
+{% for i in choice %}
+		<li>{{ i }}</li>
+	{% endfor %}
+</ul>
+</body >
+</html >

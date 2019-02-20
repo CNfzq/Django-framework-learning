@@ -1,0 +1,5 @@
+{#把自定义过滤器文件加载进来使用#}
+{% load filter %}
+内置的：{{ str|lower }}<br>
+自定义的：{{ str|my_lower }}
+带参数的自定义过滤器：{{ str|my_cut:'F' }}

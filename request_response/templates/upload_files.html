@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head >
+  <meta charset = "UTF-8" >
+  <title >文件上传</title >
+</head >
+<body >
+{#凡是要上传文件就必须加enctype="multipart/form-data"参数，才能上传文件#}
+{#FILES只有在请求的方法为POST 且提交的<form>带有enctype="multipart/form-data" 的情况下才会包含数据。否则，FILES 将为一个空的类似于字典的对象#}
+<form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+        请上传：<input type="file"  name='file'><br> <br><br>
+                <input type="submit"  name='file' value="上传"><br> <br><br>
+</form>
+</body >
+</html >

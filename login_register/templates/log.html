@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head >
+  <meta charset = "UTF-8" >
+  <title >登录</title >
+</head >
+<body >
+{#使用django提供的模型form表单#}
+<form action="" method="post">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<input type="submit" value="登录">
+	{{ error }}
+</form>
+
+
+</body >
+</html >

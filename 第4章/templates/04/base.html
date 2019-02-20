@@ -1,0 +1,16 @@
+{#基本模板，用于继承与引用#}
+
+<!DOCTYPE html>
+<html lang = "en">
+<head >
+  <meta charset = "UTF-8" >
+  <title >{% block title %}基本模板{% endblock %}</title >
+</head >
+<body >
+{#这是继承基本模板的时候要修改的内容#}
+{% block content  %}
+{% endblock %}
+{#这是基本模板的内容#}
+模板继承与引用，见04_index_03.html
+</body >
+</html >

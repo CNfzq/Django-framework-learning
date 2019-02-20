@@ -1,0 +1,13 @@
+{#展示添加博客的博客列表的文字，实现页面跳转#}
+{% extends 'demo_base.html' %}
+
+{% block title %}
+    首页
+{% endblock %}
+
+{% block bodyblock %}
+    <tr>
+        <td><a href="{% url 'blog_add' %}">添加文章</a></td>
+        <td><a href="{% url 'blog_list' %}">文章列表</a></td>
+    </tr>
+{% endblock %}

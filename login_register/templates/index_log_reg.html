@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head >
+  <meta charset = "UTF-8" >
+  <title >首页</title >
+</head >
+<body >
+
+欢迎{{ name }}登录<br><br><br>
+{#auth系统的测试，request本身就有一个user,django配置好的,没有人登录就会显示AnonymousUser#}
+欢迎{{ request.user }}登录<br><br><br>
+上下文处理器：{{ request.myuser }}<br><br><br>
+上下文处理器：{{ myuser }}<br><br><br>
+<a href="{% url 'log_in' %}">登录</a>
+<a href="{% url 'reg' %}">注册</a>
+<a href="{% url 'log_out' %}">退出</a>
+<br><br><br>
+<a href="{% url 'blog_index' %}">进入博客主页</a>
+
+</body >
+</html >
